@@ -1,1 +1,1 @@
-# cnn-size-calculator
+# cnn size calculator
