@@ -30,13 +30,13 @@ const SizeInputs = () => {
     return (
         <div className="box">
             <h2> Image input size</h2>
-            <div className='inputs'>
-                <label>Width W:</label>
-                <input type="number" placeholder='128' onChange={handleWidthChange} />
-                <label>Height H:</label>
-                <input type="number" placeholder='128' onChange={handleHeightChange} />
-                <label>Channels C:</label>
-                <input type="number" placeholder='1' onChange={handleChannelChange} />
+            <div className="grid-container">
+                <div className="grid-item"><label>Width W:</label></div>
+                <div className="grid-item"><label>Height H:</label></div>
+                <div className="grid-item"><label>Channels C:</label></div>
+                <div className="grid-item"><input type="number" placeholder='128' onChange={handleWidthChange} /></div>
+                <div className="grid-item"><input type="number" placeholder='128' onChange={handleHeightChange} /></div>
+                <div className="grid-item"><input type="number" placeholder='1' onChange={handleChannelChange} /></div>
             </div>
             <button onClick={handleSetButtonClick}>Set</button>
 

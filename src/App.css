@@ -1,5 +1,10 @@
 * {
     box-sizing: border-box;
+    --bg-colour :#489183;
+    --container-colour :#ECEAE0;
+    --accent-colour :#E9633B;
+    --accent-colour2 :#a4bdb9;
+    --dark :#221E1D;
 }
 
 .App {
@@ -7,52 +12,68 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 24px;
 }
 
 body {
     display: flex;
     justify-content: center;
     height: 100vh;
+    background-color: var(--bg-colour);
+    font-size: 16px;
 }
 
 p, label, h1, h2, h3, h4, h5, h6 {
     font-family: "Roboto", sans-serif;
     margin-top: 10px;
+    color: var(--dark);
 }
 
 .box {
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 4px;
+    background-color: var(--container-colour);
+    border-radius: 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
-    min-width: 400px;
+    margin: 50px;
 }
 
-.inputs {
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;}
-
-input{
-   max-width: 60px;
-}
+input {
+    border-width: 5px;
+    border-color: transparent;
+    border-radius: 6px;
+    background-color: var(--accent-colour2);
+    }
 
 button {
-    width: 90%;
-    margin-top: 10px;
-    margin-left: 50px;
-    margin-right: 50px;
+    width: 10%;
+    margin: 10px;
+    border-width: 0px;
+    border-radius: 6px;
+    background-color: var(--accent-colour);
+    font-size: 16px;
+}
+
+.grid-container {
+    display: grid;
+    max-width: 90%;
+    align-self: center;
+    justify-self: center;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content;
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+}
+
+.grid-item {
+    align-self: center;
+    justify-self: center;
 }
 
 label {
+    margin-bottom: 1px;
 
 }
