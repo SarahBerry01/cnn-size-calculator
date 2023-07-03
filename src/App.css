@@ -17,7 +17,6 @@
 body {
     display: flex;
     justify-content: center;
-    height: 100vh;
     background-color: var(--bg-colour);
     font-size: 16px;
 }
@@ -30,7 +29,6 @@ p, label, h1, h2, h3, h4, h5, h6 {
 
 .box {
     display: flex;
-    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -40,7 +38,16 @@ p, label, h1, h2, h3, h4, h5, h6 {
     margin: 50px;
 }
 
+.grid-item input {
+    width: 100%; /* Input boxes fill the entire width of the grid cell */
+    height: 100%; /* Input boxes fill the entire height of the grid cell */
+    box-sizing: border-box; /* Includes padding and border in the width and height */
+    align-self: center;
+    justify-self: center;
+  }
+
 input {
+    max-width: 100%;
     border-width: 5px;
     border-color: transparent;
     border-radius: 6px;
@@ -56,22 +63,24 @@ button {
     font-size: 16px;
 }
 
-.grid-container {
+.grid-size-inputs {
     display: grid;
-    max-width: 90%;
-    align-self: center;
-    justify-self: center;
-    margin: 0 auto;
+    width: 80%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: min-content;
     grid-column-gap: 10px;
     grid-row-gap: 5px;
 }
 
-.grid-item {
-    align-self: center;
-    justify-self: center;
+.grid-conv-layer {
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content;
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
 }
+
 
 label {
     margin-bottom: 1px;

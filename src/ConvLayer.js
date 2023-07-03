@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
-const SizeInputs = () => {
+const ConvLayer = () => {
     const [tmpWidth, setTmpWidth] = useState('');
     const [tmpHeight, setTmpHeight] = useState('');
     const [tmpChannels, setTmpChannels] = useState('');
@@ -27,21 +29,30 @@ const SizeInputs = () => {
         setChannels(tmpChannels);
     };
 
+    const options = [
+        'one', 'two', 'three'
+      ];
+      const defaultOption = options[0];
+
     return (
         <div className="box">
-            <h2> Image input size</h2>
-            <div className="grid-size-inputs">
-                <div className="grid-item"><label>Width W:</label></div>
-                <div className="grid-item"><label>Height H:</label></div>
-                <div className="grid-item"><label>Channels C:</label></div>
+            <h2> 2D Convolution Layer </h2>
+            <div className="grid-conv-layer">
+                <div className="grid-item"><label>Out Channels:</label></div>
+                <div className="grid-item"><label>Kernel Size:</label></div>
+                <div className="grid-item"><label>Stride:</label></div>
+                <div className="grid-item"><label>Padding:</label></div>
+
                 <div className="grid-item"><input type="number" placeholder='128' onChange={handleWidthChange} /></div>
                 <div className="grid-item"><input type="number" placeholder='128' onChange={handleHeightChange} /></div>
                 <div className="grid-item"><input type="number" placeholder='1' onChange={handleChannelChange} /></div>
-            </div>
-            <button onClick={handleSetButtonClick}>Set</button>
+                <div className="grid-item"><input type="number" placeholder='1' onChange={handleChannelChange} /></div>
+
+                </div>
+            <button onClick={handleSetButtonClick}>Add</button>
 
         </div>
     );
 };
 
-export default SizeInputs;
+export default ConvLayer;
