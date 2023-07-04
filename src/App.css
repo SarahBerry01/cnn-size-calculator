@@ -1,88 +1,55 @@
-* {
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
     box-sizing: border-box;
-    --bg-colour :#489183;
-    --container-colour :#ECEAE0;
-    --accent-colour :#E9633B;
-    --accent-colour2 :#a4bdb9;
-    --dark :#221E1D;
-}
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
+  }
 
+/* *************************************************************** */
 .App {
     /* text-align: center; */
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 24px;
 }
 
 body {
     display: flex;
     justify-content: center;
-    background-color: var(--bg-colour);
-    font-size: 16px;
+    height: 100vh;
 }
-
-p, label, h1, h2, h3, h4, h5, h6 {
-    font-family: "Roboto", sans-serif;
-    margin-top: 10px;
-    color: var(--dark);
-}
-
-.box {
-    display: flex;
-    flex-direction: column;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
-    background-color: var(--container-colour);
-    border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 50px;
-}
-
-.grid-item input {
-    width: 100%; /* Input boxes fill the entire width of the grid cell */
-    height: 100%; /* Input boxes fill the entire height of the grid cell */
-    box-sizing: border-box; /* Includes padding and border in the width and height */
-    align-self: center;
-    justify-self: center;
+    height: 100vh; /* Adjust the height as per your requirement */
   }
 
-input {
-    max-width: 100%;
-    border-width: 5px;
-    border-color: transparent;
-    border-radius: 6px;
-    background-color: var(--accent-colour2);
-    }
-
-button {
-    width: 10%;
-    margin: 10px;
-    border-width: 0px;
-    border-radius: 6px;
-    background-color: var(--accent-colour);
-    font-size: 16px;
-}
-
-.grid-size-inputs {
-    display: grid;
-    width: 80%;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: min-content;
-    grid-column-gap: 10px;
-    grid-row-gap: 5px;
-}
-
-.grid-conv-layer {
-    display: grid;
-    width: 80%;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: min-content;
-    grid-column-gap: 10px;
-    grid-row-gap: 5px;
-}
-
-
-label {
-    margin-bottom: 1px;
-
-}
+.box {
+    width: 50%; /* Adjust the width as needed */
+    background-color: #ff0000; /* Set the desired background color */
+  }
