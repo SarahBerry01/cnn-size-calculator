@@ -1,35 +1,5 @@
 import React, { useState } from 'react';
 
-function Table(props) {
-    return (
-        <div className='box-container'>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Channels Out</th>
-                        <th>Kernel</th>
-                        <th>Stride</th>
-                        <th>Padding</th>
-                        <th>Calc</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {props.data.map((row, index) => (
-                        <tr key={index}>
-                            <td>{row.channels}</td>
-                            <td>{row.kernel}</td>
-                            <td>{row.stride}</td>
-                            <td>{row.padding}</td>
-                            <td>{row.padding * row.channels}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>);
-
-}
-
 
 function ConvLayers(props) {
     const [inputs, setInputs] = useState({
@@ -44,7 +14,6 @@ function ConvLayers(props) {
         event.preventDefault();
         const newRow = { ...inputs };
         props.updateData([...props.data, newRow]);
-        setInputs({ channels: '', kernel: '', stride: '', padding: '' }); // Clear input values after submission
     };
 
     return (

@@ -12,7 +12,7 @@ function App() {
     <div>
     <SizeInputs sizes={sizes} updateSizes={setSizes}/>
     <ConvLayers data={data} updateData={setData}/>
-    <Table data={data}/>
+    <Table data={data} sizes={sizes}/>
     </div>
   )
 }

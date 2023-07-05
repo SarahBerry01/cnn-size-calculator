@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function SizeInputs(props) {
     const [inputs, setInputs] = useState({
-        width: '', height: '', channels: '',
+        width: 128, height: 128, channels: 1,
     });
 
     const handleSubmit = (event) => {
