@@ -140,6 +140,11 @@ button {
     border-radius: 0.2rem;
 }
 
+.unsubmitted-row{
+    background-color: aliceblue;
+
+}
+
 @media (min-width: 300px) {
     .conv-grid-container {
         grid-template-columns: repeat(4, 1fr);

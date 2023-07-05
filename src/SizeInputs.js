@@ -34,7 +34,7 @@ function SizeInputs(props) {
                         <input type="number" name="channels" value={inputs.channels} onChange={handleInputChange} />
                     </div>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit">Update</button>
             </form>
         </div>
     );
