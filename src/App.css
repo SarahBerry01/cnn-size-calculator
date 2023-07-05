@@ -2,29 +2,51 @@
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-  }
-  * {
+}
+
+* {
     margin: 0;
-  }
-  body {
+}
+
+body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-  }
-  img, picture, video, canvas, svg {
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
     display: block;
     max-width: 100%;
-  }
-  input, button, textarea, select {
+}
+
+input,
+button,
+textarea,
+select {
     font: inherit;
-  }
-  p, h1, h2, h3, h4, h5, h6 {
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     overflow-wrap: break-word;
-  }
-  #root, #__next {
+}
+
+#root,
+#__next {
     isolation: isolate;
-  }
+}
 
 /* *************************************************************** */
 .App {
@@ -39,17 +61,72 @@ body {
     display: flex;
     justify-content: center;
     height: 100vh;
+    font-family: 'Roboto Mono', monospace;
 }
+
+label {
+    display: block;
+    text-align: center;
+    line-height: 150%;
+
+}
+
+th {
+    text-align: left;
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    box-sizing: border-box;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust the height as per your requirement */
-  }
+    height: auto;
+    gap: 10px;
+    margin: 10px;
+}
 
-.box {
-    width: 50%; /* Adjust the width as needed */
-    background-color: #ff0000; /* Set the desired background color */
+form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;}
+
+input {
+    width: 100%;
+    background-color: cornsilk;
+    border: 0px;
+    border-radius: 0.2rem;
+}
+
+.box-container {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: fit-content;
+    background-color: slategray;
+    margin: 2rem;
+    border-radius: 0.5rem;
+}
+
+table {
+    width: 80%;
+    box-sizing: border-box;
+    height: fit-content;
+    margin: 1rem;
+}
+
+button{
+   margin: 10px;
+   border: 0px;
+   border-radius: 0.2rem;
+}
+
+@media (min-width: 300px) {
+    .grid-container { grid-template-columns: repeat(4, 1fr); }
   }
