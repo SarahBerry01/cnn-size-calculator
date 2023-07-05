@@ -11,12 +11,20 @@ function App() {
   const [inputs, setInputs] = useState({
     channels: '', kernel: '', stride: '', padding: '',
   });
+  function clear(){
+    setData([]);
+  }
   return (
     <div>
-      <SizeInputs sizes={sizes} updateSizes={setSizes} />
-      <ConvLayers data={data} updateData={setData} inputs={inputs} updateInputs={setInputs} />
-      <Table data={data} sizes={sizes} inputs={inputs}/>
+    <h1>CNN Layer Size Calculator</h1>
+      <div className="parentLayout">
+        <SizeInputs sizes={sizes} updateSizes={setSizes} />
+        <ConvLayers data={data} updateData={setData} inputs={inputs} updateInputs={setInputs} />
+      </div>
+      <button onClick={clear}>Clear</button>
+      <Table data={data} sizes={sizes} inputs={inputs} />
     </div>
+
   )
 }
 
