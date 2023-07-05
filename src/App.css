@@ -41,6 +41,7 @@ h4,
 h5,
 h6 {
     overflow-wrap: break-word;
+    text-align: center;
 }
 
 #root,
@@ -49,6 +50,13 @@ h6 {
 }
 
 /* *************************************************************** */
+:root{
+    --bg-light: #f8f0e3;
+    --bg: #F1DDBF;
+    --dark: #525E75;
+    --med: #78938A;
+    --light: #92BA92;
+}
 .App {
     /* text-align: center; */
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -57,11 +65,25 @@ h6 {
     font-size: 24px;
 }
 
+div{
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+}
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column ;
+    align-items: center;
     height: 100vh;
     font-family: 'Roboto Mono', monospace;
+    margin: 2rem;
+    background-color: var(--bg-light)
+}
+
+.parentLayout {
+    display: flex;
+    flex-direction: row ;
+    max-width: 1000px;
 }
 
 label {
@@ -83,7 +105,7 @@ th {
     align-items: center;
     height: auto;
     gap: 10px;
-    margin: 10px;
+    margin: 1rem;
 }
 
 .size-grid-container {
@@ -94,7 +116,7 @@ th {
     align-items: center;
     height: auto;
     gap: 10px;
-    margin: 10px;
+    margin: 1rem;
 }
 
 
@@ -109,35 +131,51 @@ form {
 
 input {
     width: 100%;
-    background-color: cornsilk;
+    background-color: antiquewhite;
     border: 0px;
     border-radius: 0.2rem;
 }
 
 .box-container {
     display: flex;
-    box-sizing: border-box;
+    overflow: hidden;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 40vw;
+    width: calc(50%);
     height: fit-content;
-    background-color: slategray;
-    margin: 2rem;
+    background-color: var(--dark);
+    margin: 1rem;
     border-radius: 0.5rem;
+    box-sizing: border-box;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    width: 100%;
 }
 
 table {
-    width: 80%;
-    box-sizing: border-box;
+    width: 100%;
     height: fit-content;
     margin: 1rem;
+    border-collapse: collapse;
 }
 
 button {
     margin: 10px;
     border: 0px;
     border-radius: 0.2rem;
+    background-color: var(--bg);
+    align-self: center;
+}
+
+.unsubmitted-row{
+    background-color: var(--med);
+    color: var(--bg);
+
 }
 
 @media (min-width: 300px) {
