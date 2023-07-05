@@ -1,47 +1,42 @@
 import React, { useState } from 'react';
 
-const SizeInputs = () => {
-    const [tmpWidth, setTmpWidth] = useState('');
-    const [tmpHeight, setTmpHeight] = useState('');
-    const [tmpChannels, setTmpChannels] = useState('');
-    const [width, setWidth] = useState('');
-    const [height, setHeight] = useState('');
-    const [channels, setChannels] = useState('');
+function SizeInputs(props) {
+    const [inputs, setInputs] = useState({
+        width: '', height: '', channels: '',
+    });
 
-
-    const handleWidthChange = (e) => {
-        setTmpChannels(e.target.value);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.updateSizes(inputs);
     };
 
-    const handleChannelChange = (e) => {
-        setTmpWidth(e.target.value);
+    const handleInputChange = (event) => {
+        setInputs({ ...inputs, [event.target.name]: event.target.value });
     };
-
-    const handleHeightChange = (e) => {
-        setTmpHeight(e.target.value);
-    };
-
-    const handleSetButtonClick = () => {
-        setWidth(tmpWidth);
-        setHeight(tmpHeight);
-        setChannels(tmpChannels);
-    };
-
     return (
-        <div className="box">
-            <h2> Image input size</h2>
-            <div className="grid-size-inputs">
-                <div className="grid-item"><label>Width W:</label></div>
-                <div className="grid-item"><label>Height H:</label></div>
-                <div className="grid-item"><label>Channels C:</label></div>
-                <div className="grid-item"><input type="number" placeholder='128' onChange={handleWidthChange} /></div>
-                <div className="grid-item"><input type="number" placeholder='128' onChange={handleHeightChange} /></div>
-                <div className="grid-item"><input type="number" placeholder='1' onChange={handleChannelChange} /></div>
-            </div>
-            <button onClick={handleSetButtonClick}>Set</button>
+        <div className='box-container'>
+            <h3>Input Image Size</h3>
+            <form onSubmit={handleSubmit}>
+                <div className="size-grid-container">
 
+                    <div className="grid-item">
+                        <label>Width<br /></label>
+
+                        <input type="number" name="width" value={inputs.width} onChange={handleInputChange} />
+                    </div>
+                    <div className="grid-item">
+                        <label>Height<br /></label>
+
+                        <input type="number" name="height" value={inputs.height} onChange={handleInputChange} />
+                    </div>
+                    <div className="grid-item">
+                        <label>Channels<br /></label>
+                        <input type="number" name="channels" value={inputs.channels} onChange={handleInputChange} />
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     );
-};
-
+}
 export default SizeInputs;

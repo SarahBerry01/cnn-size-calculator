@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function Table(props) {
     return (
         <div className='box-container'>
-            
+
             <table>
                 <thead>
                     <tr>
@@ -31,8 +31,7 @@ function Table(props) {
 }
 
 
-function ConvLayers() {
-    const [data, setData] = useState([]);
+function ConvLayers(props) {
     const [inputs, setInputs] = useState({
         channels: '', kernel: '', stride: '', padding: '',
     });
@@ -44,43 +43,40 @@ function ConvLayers() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const newRow = { ...inputs };
-        setData([...data, newRow]);
+        props.updateData([...props.data, newRow]);
         setInputs({ channels: '', kernel: '', stride: '', padding: '' }); // Clear input values after submission
-        console.log(data);
     };
 
     return (
-        <div>
-            <div className='box-container'>
-                <h3>Add Convolution Layer</h3>
-                <form onSubmit={handleSubmit}>
-                    <div class="grid-container">
 
-                        <div class="grid-item">
-                            <label>Channels<br /></label>
+        <div className='box-container'>
+            <h3>Add Convolution Layer</h3>
+            <form onSubmit={handleSubmit}>
+                <div className="conv-grid-container">
 
-                            <input type="number" name="channels" value={inputs.channels} onChange={handleInputChange} />
-                        </div>
-                        <div class="grid-item">
-                            <label>Kernel<br /></label>
+                    <div className="grid-item">
+                        <label>Channels<br /></label>
 
-                            <input type="number" name="kernel" value={inputs.kernel} onChange={handleInputChange} />
-                        </div>
-                        <div class="grid-item">
-                            <label>Stride<br /></label>
-                            <input type="number" name="stride" value={inputs.stride} onChange={handleInputChange} />
-                        </div>
-                        <div class="grid-item">
-                            <label>Padding<br /></label>
-                            <input type="number" name="padding" value={inputs.padding} onChange={handleInputChange} />
-                        </div>
+                        <input type="number" name="channels" value={inputs.channels} onChange={handleInputChange} />
                     </div>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-            <Table data={data}/>
+                    <div className="grid-item">
+                        <label>Kernel<br /></label>
 
+                        <input type="number" name="kernel" value={inputs.kernel} onChange={handleInputChange} />
+                    </div>
+                    <div className="grid-item">
+                        <label>Stride<br /></label>
+                        <input type="number" name="stride" value={inputs.stride} onChange={handleInputChange} />
+                    </div>
+                    <div className="grid-item">
+                        <label>Padding<br /></label>
+                        <input type="number" name="padding" value={inputs.padding} onChange={handleInputChange} />
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
         </div>
+
     );
 }
 
