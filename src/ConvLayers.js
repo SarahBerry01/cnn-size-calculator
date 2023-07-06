@@ -1,5 +1,19 @@
 function ConvLayers(props) {
 
+    function handleConvButtonClick() {
+        props.updateInputs(() => ({ ...props.inputs, type: "conv" }))
+    }
+
+    function handlePoolButtonClick() {
+        // Update layer type and force  channels to be the same as start/previous layer
+        if (props.data.length === 0) {
+            props.updateInputs(() => ({ ...props.inputs, type: "pool", channels: props.sizes.channels }))
+        } else {
+            props.updateInputs(() => ({ ...props.inputs, type: "pool", channels: props.data[props.data.length - 1].channels }))
+        }
+    };
+
+
     const handleInputChange = (event) => {
         props.updateInputs({ ...props.inputs, [event.target.name]: event.target.value });
     };
@@ -14,13 +28,15 @@ function ConvLayers(props) {
 
         <div className='box-container'>
             <h3>Add Convolution Layer</h3>
+            <button onClick={() => handleConvButtonClick()} className={props.inputs.type === 'conv' ? 'selected' : ''}>2D Convolution</button>
+            <button onClick={() => handlePoolButtonClick()} className={props.inputs.type === 'pool' ? 'selected' : ''}>Max Pool</button>
             <form onSubmit={handleSubmit}>
                 <div className="conv-grid-container">
 
                     <div className="grid-item">
                         <label>Channels<br /></label>
 
-                        <input type="number" name="channels" value={props.inputs.channels} onChange={handleInputChange} />
+                        <input type="number" name="channels" value={props.inputs.channels} onChange={handleInputChange} disabled={props.inputs.type === 'pool' ? "disabled" : ""} />
                     </div>
                     <div className="grid-item">
                         <label>Kernel<br /></label>

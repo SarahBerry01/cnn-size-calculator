@@ -178,6 +178,16 @@ button {
 
 }
 
+*:disabled {
+    background-color: dimgrey;
+    color: linen;
+    opacity: 1;
+}
+
+.selected{
+    background-color: aquamarine;
+}
+
 @media (min-width: 300px) {
     .conv-grid-container {
         grid-template-columns: repeat(4, 1fr);

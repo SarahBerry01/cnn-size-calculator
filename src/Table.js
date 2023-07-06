@@ -30,6 +30,7 @@ function Table(props) {
         <table>
             <thead>
                 <tr>
+                    <th>Type</th>
                     <th>Channels Out</th>
                     <th>Kernel</th>
                     <th>Stride</th>
@@ -39,8 +40,18 @@ function Table(props) {
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>{"input"}</td>
+                    <td>{props.sizes.channels}</td>
+                    <td>{"-"}</td>
+                    <td>{"-"}</td>
+                    <td>{"-"}</td>
+                    <td>{props.sizes.width}</td>
+                    <td>{props.sizes.height}</td>
+                </tr>
                 {calculatedDataRow.map((row, index) => (
                     <tr key={index}>
+                        <td>{row.type}</td>
                         <td>{row.channels}</td>
                         <td>{row.kernel}</td>
                         <td>{row.stride}</td>
@@ -50,6 +61,7 @@ function Table(props) {
                     </tr>
                 ))}
                 <tr className="unsubmitted-row">
+                    <td>{props.inputs.type}</td>
                     <td>{props.inputs.channels}</td>
                     <td>{props.inputs.kernel}</td>
                     <td>{props.inputs.stride}</td>
