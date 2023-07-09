@@ -25,35 +25,38 @@ function ConvLayers(props) {
     };
 
     return (
+        <div>
+            <div className='tabs'>
+                <button onClick={() => handleConvButtonClick()} className={props.inputs.type === 'pool' ? 'not-selected' : 'selected'}>2D Convolution</button>
+                <button onClick={() => handlePoolButtonClick()} className={props.inputs.type === 'conv' ? 'not-selected' : 'selected'}>Max Pool</button>
+            </div>
+            <div className= {props.inputs.type === 'pool' ? 'box-container tab-box-right-selected' : 'box-container tab-box-left-selected'}>
+                <h3>Add Layer</h3>
+                <form onSubmit={handleSubmit}>
+                    <div className="grid conv-grid-container">
 
-        <div className='box-container'>
-            <h3>Add Convolution Layer</h3>
-            <button onClick={() => handleConvButtonClick()} className={props.inputs.type === 'conv' ? 'selected' : ''}>2D Convolution</button>
-            <button onClick={() => handlePoolButtonClick()} className={props.inputs.type === 'pool' ? 'selected' : ''}>Max Pool</button>
-            <form onSubmit={handleSubmit}>
-                <div className="conv-grid-container">
+                        <div className="grid-item">
+                            <label>Channels<br /></label>
 
-                    <div className="grid-item">
-                        <label>Channels<br /></label>
+                            <input type="number" name="channels" value={props.inputs.channels} onChange={handleInputChange} disabled={props.inputs.type === 'pool' ? "disabled" : ""} />
+                        </div>
+                        <div className="grid-item">
+                            <label>Kernel<br /></label>
 
-                        <input type="number" name="channels" value={props.inputs.channels} onChange={handleInputChange} disabled={props.inputs.type === 'pool' ? "disabled" : ""} />
+                            <input type="number" name="kernel" value={props.inputs.kernel} onChange={handleInputChange} />
+                        </div>
+                        <div className="grid-item">
+                            <label>Stride<br /></label>
+                            <input type="number" name="stride" value={props.inputs.stride} onChange={handleInputChange} />
+                        </div>
+                        <div className="grid-item">
+                            <label>Padding<br /></label>
+                            <input type="number" name="padding" value={props.inputs.padding} onChange={handleInputChange} />
+                        </div>
                     </div>
-                    <div className="grid-item">
-                        <label>Kernel<br /></label>
-
-                        <input type="number" name="kernel" value={props.inputs.kernel} onChange={handleInputChange} />
-                    </div>
-                    <div className="grid-item">
-                        <label>Stride<br /></label>
-                        <input type="number" name="stride" value={props.inputs.stride} onChange={handleInputChange} />
-                    </div>
-                    <div className="grid-item">
-                        <label>Padding<br /></label>
-                        <input type="number" name="padding" value={props.inputs.padding} onChange={handleInputChange} />
-                    </div>
-                </div>
-                <button type="submit">Add</button>
-            </form>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
         </div>
 
     );

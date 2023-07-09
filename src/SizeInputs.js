@@ -17,7 +17,7 @@ function SizeInputs(props) {
         <div className='box-container'>
             <h3>Input Image Size</h3>
             <form onSubmit={handleSubmit}>
-                <div className="size-grid-container">
+                <div className="grid size-grid-container">
 
                     <div className="grid-item">
                         <label>Width<br /></label>
