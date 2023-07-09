@@ -17,10 +17,8 @@ function App() {
   return (
     <div>
     <h1>CNN Layer Size Calculator</h1>
-      <div className="parentLayout">
         <SizeInputs sizes={sizes} updateSizes={setSizes} />
         <ConvLayers sizes={sizes} data={data} updateData={setData} inputs={inputs} updateInputs={setInputs} />
-      </div>
       <button onClick={clear}>Clear</button>
       <Table data={data} sizes={sizes} inputs={inputs} />
     </div>

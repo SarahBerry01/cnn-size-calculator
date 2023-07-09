@@ -50,13 +50,15 @@ h6 {
 }
 
 /* *************************************************************** */
-:root{
-    --bg-light: #f8f0e3;
-    --bg: #F1DDBF;
-    --dark: #525E75;
-    --med: #78938A;
-    --light: #92BA92;
+:root {
+    --accent: #89aac5;
+    --light: #f8f0de;
+    --med: #dec9b9;
+    --dark: #b29f98;
+
 }
+
+
 .App {
     /* text-align: center; */
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -65,60 +67,65 @@ h6 {
     font-size: 24px;
 }
 
-div{
+div {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     align-items: center;
 }
+
 body {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     font-family: 'Roboto Mono', monospace;
     margin: 2rem;
-    background-color: var(--bg-light)
+    background-color: var(--light)
 }
 
-.parentLayout {
+.box-container {
     display: flex;
-    flex-direction: row ;
-    max-width: 1000px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(50%);
+    height: fit-content;
+    background-color: var(--med);
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
 }
 
-label {
-    display: block;
-    text-align: center;
-    line-height: 150%;
-
+h1 {
+    margin-bottom: 2rem;
 }
 
-th {
-    text-align: left;
+h3 {
+    margin: 0.5rem;
+}
+
+/************** INPUTS ********************/
+
+.grid {
+    display: grid;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 1rem;
+    margin: 0.5rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .conv-grid-container {
-    display: grid;
-    box-sizing: border-box;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    gap: 10px;
-    margin: 1rem;
 }
 
 .size-grid-container {
-    display: grid;
-    box-sizing: border-box;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    gap: 10px;
-    margin: 1rem;
 }
-
 
 form {
     display: flex;
@@ -133,21 +140,29 @@ input {
     width: 100%;
     background-color: antiquewhite;
     border: 0px;
-    border-radius: 0.2rem;
+    border-radius: 0.5rem;
 }
 
-.box-container {
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: calc(50%);
-    height: fit-content;
-    background-color: var(--dark);
+button {
+    padding-left: 2rem;
+    padding-right: 2rem;
     margin: 1rem;
+    border: 0px;
     border-radius: 0.5rem;
-    box-sizing: border-box;
+    background-color: var(--accent);
+    align-self: center;
+}
+
+
+*:disabled {
+    background-color: var(--dark);
+    opacity: 1;
+}
+
+/************** TABLE ********************/
+.unsubmitted-row {
+    background-color: var(--dark);
+    color: var(--light);
 }
 
 .table-container {
@@ -164,29 +179,46 @@ table {
     border-collapse: collapse;
 }
 
-button {
-    margin: 10px;
-    border: 0px;
-    border-radius: 0.2rem;
-    background-color: var(--bg);
-    align-self: center;
+th,
+tr {
+    text-align: right;
 }
 
-.unsubmitted-row{
+/************** TABS ********************/
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    width: calc(50%);
+    align-items: center;
+
+}
+
+.not-selected {
+    background-color: var(--light);
+    margin: 0px;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.selected {
     background-color: var(--med);
-    color: var(--bg);
-
+    border-radius: 0px;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    margin: 0px;
+    width: 100%;
 }
 
-*:disabled {
-    background-color: dimgrey;
-    color: linen;
-    opacity: 1;
+.tab-box-left-selected {
+    border-top-left-radius: 0px;
 }
 
-.selected{
-    background-color: aquamarine;
+.tab-box-right-selected {
+    border-top-right-radius: 0px;
 }
+
+/************* VIEW ***************/
 
 @media (min-width: 300px) {
     .conv-grid-container {
